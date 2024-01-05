@@ -1,2 +1,2 @@
 # CaffeineChronicles
-CTU Computer Science Team Project CS492-2401B-01
+Colorado Technical University Computer Science Team Project CS492-2401B-01
