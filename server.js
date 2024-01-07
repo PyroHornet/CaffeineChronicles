@@ -6,10 +6,10 @@ app.get("/", (req, res) => {
 });
 
 const homepageRoutes = require('./routes/homepage');
-const othertest = require('./routes/othertest');
+const secondRoutes = require('./routes/secondpage');
 
 app.use('/homepage', homepageRoutes);
-app.use('/othertest', othertest);
+app.use('/secondpage', secondRoutes);
 
 
 const port = process.env.PORT || 3000;
