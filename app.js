@@ -6,7 +6,7 @@ var logger = require('morgan');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 
-var indexRouter = require('./routes/index');
+var homepageRouter = require('./routes/homepage');
 var usersRouter = require('./routes/users');
 var contactRouter = require('./routes/contact');
 var aboutRouter = require('./routes/about');
@@ -33,7 +33,7 @@ app.use(express.static(path.join(__dirname, 'public/javascripts')));
 
 
 
-app.use('/', indexRouter);
+app.use('/', homepageRouter);
 app.use('/users', usersRouter);
 app.use('/contact', contactRouter);
 app.use('/about', aboutRouter);
