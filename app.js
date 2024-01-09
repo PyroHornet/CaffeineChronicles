@@ -11,6 +11,9 @@ var usersRouter = require('./routes/users');
 var contactRouter = require('./routes/contact');
 var aboutRouter = require('./routes/about');
 var catalogRouter = require('./routes/catalog');
+var homeRouter = require('./routes/home');
+var cartRouter = require('./routes/cart');
+var loginRouter = require('./routes/login');
 
 var app = express();
 
@@ -33,11 +36,14 @@ app.use(express.static(path.join(__dirname, 'public/javascripts')));
 
 
 
+app.use('/', homeRouter);
 app.use('/', homepageRouter);
 app.use('/users', usersRouter);
 app.use('/contact', contactRouter);
 app.use('/about', aboutRouter);
 app.use('/catalog', catalogRouter);
+app.use('/cart', cartRouter);
+app.use('/login', loginRouter);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
