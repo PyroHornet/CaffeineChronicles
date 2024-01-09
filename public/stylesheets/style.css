@@ -114,7 +114,7 @@ form label, form input {
 }
 
 form input[type='email'] {
-    width: 100%;
+    width: 500px;
     padding: 10px;
     border: 1px solid #de641b;
 }
