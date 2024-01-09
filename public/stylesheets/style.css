@@ -17,14 +17,14 @@ body {
 / Header /
 header {
     background: #ff7f50; / Coral orange /
-    color: #fff5e6; / Off-white text /
+    color: #464343; / Off-white text /
     padding-top: 30px;
     min-height: 70px;
     border-bottom: #de641b 3px solid; / Darker orange /
 }
 
 header a {
-    color: #fff5e6;
+    color: #464343;
     text-decoration: none;
     text-transform: uppercase;
     font-size: 16px;
@@ -51,7 +51,7 @@ header .highlight, header .current a {
     min-height: 400px;
     background: url('showcase.jpg') no-repeat 0 -100px; / Update with appropriate image /
     text-align: center;
-    color: #fff5e6;
+    color: #464343;
 }
 
 #showcase h1 {
@@ -70,7 +70,7 @@ header .highlight, header .current a {
 #sidebar .dark {
     padding: 15px;
     background: #8b4513; / Saddle brown /
-    color: #fff5e6;
+    color: #464343;
 }
 
 / Main Column /
@@ -89,7 +89,7 @@ header .highlight, header .current a {
 / Footer /
 footer {
     background: #5a3a22; / Dark brown */
-    color: #fff5e6;
+    color: #464343;
     text-align: center;
     padding: 10px 0;
 }
@@ -100,7 +100,7 @@ footer {
     border: 0;
     padding-left: 20px;
     padding-right: 20px;
-    color: #fff5e6;
+    color: #464343;
 }
 
 / Form Styles /
