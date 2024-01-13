@@ -1,6 +1,10 @@
-// index.pug
 doctype html
 html
-  head
-        meta(charset='UTF-8')
-        title Untitled Document
+    head
+        title Books List
+    body
+        h1 Books
+        ul
+            each book in books
+                li= book.BookTitle
+
