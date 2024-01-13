@@ -1,1 +1,63 @@
-<!DOCTYPE html><html><head><meta charset="UTF-8"><title>Untitled Document</title></head></html>
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <title>Caffeine Chronicles Cart</title>
+    <link rel='stylesheet' href='/public/stylesheets/homepagestyle.css'>
+</head>
+<body>
+<script src='/public/javascripts/Script.js'></script>
+<header>
+    <div class="container">
+        <div id="branding">
+            <h1><span class="highlight">Caffeine</span> Chronicles</h1>
+            <nav>
+                <ul>
+                    <li><a href='/'>Home</a></li>
+                    <li><a href='catalog'>Catalog</a></li>
+                    <li><a href='about'>About</a></li>
+                    <li><a href='contact'>Contact</a></li>
+                    <li><a href='cart'>Cart</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</header>
+<section id="showcase">
+    <div class="container">
+        <h1>Welcome to the World of Books and Coffee</h1>
+        <div class="container">
+            <section id="main-col">
+                <h2 class="page-title">Your Cart</h2>
+                <!-- Add items in cart here -->
+                <div class="cart-item">
+                    <h3>Book Title 1</h3>
+                    <p>Description for Book Title 1.</p>
+                    <!-- Button for removing the item from the cart -->
+                    <button class="button_1" onclick='removeItemFromCart("book_title_1");'>Remove</button>
+                    <!-- Repeat for other items in the cart -->
+                </div>
+            </section>
+            <aside id="sidebar">
+                <div class="dark">
+                    <h3>Order Summary</h3>
+                    <!-- Display order summary here -->
+                </div>
+            </aside>
+            <footer>
+                <p>Caffeine Chronicles &copy; 2024</p>
+            </footer>
+        </div>
+    </div>
+</section>
+
+<script>
+    function removeItemFromCart(itemId) {
+        // Here you should add logic taking care of removing
+        // an item from the cart on the server, and then updating the cart view
+        console.log(`${itemId} removed from the cart`);
+    }
+</script>
+</body>
+</html>
