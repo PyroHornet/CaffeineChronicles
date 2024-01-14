@@ -1,5 +1,6 @@
 <component name="ProjectRunConfigurationManager">
   <configuration default="false" name="bin\www" type="NodeJSConfigurationType" path-to-js-file="bin/www" working-dir="$PROJECT_DIR$">
+    <log_file alias="FirstLogs?" path="$PROJECT_DIR$/LogFiles.txt" skipped="false" />
     <envs>
       <env name="DEBUG" value="express2.0:*" />
     </envs>

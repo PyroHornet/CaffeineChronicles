@@ -4,7 +4,7 @@ html(lang='en')
     meta(charset='UTF-8')
     meta(name='viewport', content='width=device-width, initial-scale=1.0')
     title Caffeine Chronicles Cart
-    link(rel='stylesheet', href='/public/stylesheets/homepagestyle.css')
+    link(rel='stylesheet', href='homepagestyle.css')
 
   body
     script(src='Script.js')
@@ -35,6 +35,8 @@ html(lang='en')
         section#main-col
           h2.page-title Your Cart
           .cart-item
+            each book in books
+              p #{book.BookTitle}
             h3 Book Title 1
             p Description for Book Title 1.
             button.button_1(onclick='removeItemFromCart("book_title_1");') Remove

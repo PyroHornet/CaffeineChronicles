@@ -1,0 +1,85 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        title Create a new account with us!
+        style.
+            .book-item {
+                margin-bottom: 100px;
+            }
+        script(src="Script.js")
+    body
+        if errors
+            ul
+                each error in errors
+                    li= error.msg
+        header
+            div.container
+                div#branding
+                    h1
+                        span.highlight Caffeine Chronicles
+                nav
+                    ul
+                        li
+                            a(href="/") Home
+                        li
+                            a(href="catalog") Catalog
+                        li
+                            a(href="about") About
+                        li
+                            a(href="contact") Contact
+                        li.current
+                            a(href="cart") Cart
+                        li
+                            a(href='newaccount') Create Account
+        section#showcase
+            div.container
+                h1 Welcome to the World of Books and Coffee
+                p Discover your next great read with us.
+        div.container
+            section#main-col
+                h2.page-title Join Us!
+                form(action='newaccount/submit-account-form' method="POST")
+                    div
+                        label(for='lastName') Last Name:
+                        input(type='text' id='lastName' name='lastName' required)
+                    div
+                        label(for='firstName') First Name:
+                        input(type='text' id='firstName' name='firstName' required)
+                    div
+                        label(for='phone') Phone Number:
+                        input(type='text' id='phone' name='phone' required)
+                    div
+                        label(for='email') Email Address:
+                        input(type='email' id='email' name='email' required)
+
+                    div
+                        label(for='address') Address:
+                        input(type='text' id='address' name='address' required)
+                    div
+                        label(for='city') City:
+                        input(type='text' id='city' name='city' required)
+
+                    div
+                        label(for='state') State:
+                        input(type='text' id='state' name='state' required)
+
+                    div
+                        label(for='postalCode') Postal Code:
+                        input(type='text' id='postalCode' name='postalCode' required)
+                    div
+                        input(type='submit' value='Submit')
+
+
+            aside#sidebar
+                div.dark
+                    h3 Get Our Newsletter
+                    form.quote
+                        div
+                            label Email
+                            br
+                            input(type="email", placeholder="Enter Email...")
+                        button.button_1(type="submit") Subscribe
+        footer
+            p Caffeine Chronicles © 2024

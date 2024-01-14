@@ -4,7 +4,10 @@ html(lang="en")
     meta(charset="UTF-8")
     meta(name="viewport", content="width=device-width, initial-scale=1.0")
     title Books List
-    link(rel="stylesheet", href="/public/stylesheets/homepagestyle.css")
+    style.
+      .book-item {
+        margin-bottom: 100px;
+      }
     script(src="Script.js")
   body
     header
@@ -34,6 +37,9 @@ html(lang="en")
             ul
                 each book in books
                     li= book.BookTitle
+                    p #{book.Author}
+                    p $#{book.Price}
+                    p #{book.Desc}
       aside#sidebar
         div.dark
           h3 Get Our Newsletter

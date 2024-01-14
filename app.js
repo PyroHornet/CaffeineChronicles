@@ -15,6 +15,10 @@ var catalogRouter = require('./routes/catalog');
 var homeRouter = require('./routes/home');
 var cartRouter = require('./routes/cart');
 var loginRouter = require('./routes/login');
+var newaccountRouter = require('./routes/newaccount');
+var acconfirmRouter = require('./routes/accountconfirmation');
+
+
 
 var app = express();
 
@@ -25,6 +29,7 @@ app.set('view engine', 'pug');
 //added middleware
 app.use(bodyParser.json());
 app.use(cors());
+app.use(express.urlencoded({ extended: true }));
 
 app.use(logger('dev'));
 app.use(express.json());
@@ -45,6 +50,10 @@ app.use('/about', aboutRouter);
 app.use('/catalog', catalogRouter);
 app.use('/cart', cartRouter);
 app.use('/login', loginRouter);
+app.use('/newaccount', newaccountRouter);
+app.use('/accountconfirmation', acconfirmRouter);
+
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
