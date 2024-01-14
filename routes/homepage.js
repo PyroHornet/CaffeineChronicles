@@ -16,32 +16,37 @@ router.get('/', async function (req, res, next) {
   let conn;
   try {
     conn = await pool.getConnection();
-    const rows = await conn.query("SELECT * FROM Books WHERE IsFeatured IS TRUE");
+    const rows = await conn.query('SELECT * FROM Books WHERE IsFeatured IS TRUE');
+    if (!rows) {
+      return res.status(500).send('Database query failed');
+    }
     // Check if 'rows' is defined and is an array; if not, assign it an empty array
     if (!Array.isArray(rows)) {
       rows = [];
     }
     res.render('homepage', { books: rows });
-  } catch (err) {
+  }
+  catch (err) {
     console.error(err);
     res.status(500).send('Error occurred');
-  } finally {
+  }
+  finally {
     if (conn) conn.end();
   }
 });
 
-router.post('/', function(req, res, next) {
+//router.post('/', function(req, res, next) {
   //logic to add new data
-  res.status(201).send('Data created');
-});
+//  res.status(201).send('Data created');
+//});
 
-router.put('/', function(req, res, next) {
+//router.put('/', function(req, res, next) {
   //logic to update data
-});
+//});
 
-router.delete('/', function(req, res, next) {
+//router.delete('/', function(req, res, next) {
   //logic to delete data
-});
+//});
 
 
 
