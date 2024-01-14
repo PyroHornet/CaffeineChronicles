@@ -3,6 +3,7 @@
   <component name="SqlDialectMappings">
     <file url="file://$APPLICATION_CONFIG_DIR$/consoles/db/c61286d0-f488-42dd-a7ee-81edcdfd07e8/console.sql" dialect="MySQL" />
     <file url="file://$PROJECT_DIR$/routes/catalog.js" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/routes/homepage.js" dialect="MySQL" />
     <file url="PROJECT" dialect="MariaDB" />
   </component>
 </project>

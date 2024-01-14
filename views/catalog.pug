@@ -4,15 +4,16 @@ html(lang="en")
     meta(charset="UTF-8")
     meta(name="viewport", content="width=device-width, initial-scale=1.0")
     title Books List
+    link(rel='stylesheet', href='homepagestyle.css')
     style.
       .book-item {
         margin-bottom: 100px;
       }
-    script(src="Script.js")
   body
+    script(src="Script.js")
     header
       .container
-        div#branding
+        #branding
           h1
             span.highlight Caffeine Chronicles
         nav
@@ -27,6 +28,8 @@ html(lang="en")
               a(href="contact") Contact
             li.current
               a(href="cart") Cart
+            li
+              a(href='newaccount') Create Account
     section#showcase
       .container
         h1 Welcome to the World of Books and Coffee
@@ -50,4 +53,4 @@ html(lang="en")
               input(type="email", placeholder="Enter Email...")
             button.button_1(type="submit") Subscribe
     footer
-      p Caffeine Chronicles © 2024
+      p Caffeine Chronicles &copy; 2024

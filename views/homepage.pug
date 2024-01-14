@@ -6,6 +6,10 @@ html(lang='en')
     meta(name='viewport', content='width=device-width, initial-scale=1.0')
     title Caffeine Chronicles
     link(rel='stylesheet' , href='homepagestyle.css')
+    style.
+      .book-item {
+        margin-bottom: 100px;
+      }
   body
     script(src='Script.js')
     header
@@ -36,7 +40,7 @@ html(lang='en')
         h2.page-title Featured Books
         //Display books
         ul
-          //each book in books
+          each book in books
             li= book.BookTitle
             p #{book.Author}
             p $#{book.Price}
