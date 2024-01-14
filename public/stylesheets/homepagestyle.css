@@ -4,8 +4,9 @@ body {
     line-height: 1.6;
     margin: 0;
     padding: 0;
-    background: #fff8f2; / Light cream background /
-    color: #5a3a22; / Dark brown text /
+    background: #fff8f2;
+    color: #5a3a22;
+
 }
 
 .container {
@@ -16,11 +17,11 @@ body {
 
 Header
 header {
-    background: #ff7f50; / Coral orange /
-    color: #464343; / Off-white text /
+    background: #ff7f50;
+    color: #464343;
     padding-top: 30px;
     min-height: 70px;
-    border-bottom: #de641b 3px solid; / Darker orange /
+    border-bottom: #de641b 3px solid;
 }
 
 header a {
@@ -49,7 +50,7 @@ header .highlight, header .current a {
  Showcase
 #showcase {
     min-height: 400px;
-    background: url('showcase.jpg') no-repeat 0 -100px; / Update with appropriate image /
+    background: url('images/bookstore.jpg') no-repeat 0 -100px;
     text-align: center;
     color: #464343;
 }
@@ -58,18 +59,18 @@ header .highlight, header .current a {
     margin-top: 100px;
     font-size: 55px;
     margin-bottom: 10px;
-    color: #de641b; / Darker orange for headlines /
+    color: #de641b;
 }
 
 #showcase p {
     font-size: 20px;
-    color: #5a3a22; / Dark brown for text /
+    color: #5a3a22;
 }
 
  Newsletter
 #sidebar .dark {
     padding: 15px;
-    background: #8b4513; / Saddle brown /
+    background: #8b4513;
     color: #464343;
 }
 
@@ -87,16 +88,17 @@ Sidebar
 }
 
  Footer
-footer {
-    background: #5a3a22; / Dark brown */
-    color: #464343;
-    text-align: center;
-    padding: 10px 0;
-}
- Button Style
+ footer {
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     color: #464343;
+     padding: 10px 0;
+ }
+Button Style
 .button_1 {
     height: 38px;
-    background: #ff7f50; / Coral orange /
+    background: #ff7f50;
     border: 0;
     padding-left: 20px;
     padding-right: 20px;
