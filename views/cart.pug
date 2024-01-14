@@ -26,6 +26,10 @@ html(lang='en')
                 a(href='contact') Contact
               li
                 a(href='cart') Cart
+              li
+                a(href='newaccount') Create Account
+              li
+                a(href='login') Login
 
     section#showcase
       .container
@@ -36,7 +40,7 @@ html(lang='en')
           h2.page-title Your Cart
           .cart-item
             each book in books
-              p #{book.BookTitle}
+              h3 #{book.BookTitle}
             h3 Book Title 1
             p Description for Book Title 1.
             button.button_1(onclick='removeItemFromCart("book_title_1");') Remove
