@@ -16,7 +16,7 @@ router.get('/', async function (req, res, next) {
   let conn;
   try {
     conn = await pool.getConnection();
-    const rows = await conn.query("SELECT * FROM Books WHERE IsFeatured IS TRUE");
+    const rows = await conn.query('SELECT * FROM Books WHERE IsFeatured = 1');
     res.render('homepage', { books: rows });
   } catch (err) {
     console.error(err);
