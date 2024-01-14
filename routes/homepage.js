@@ -7,7 +7,7 @@ const pool = mariadb.createPool({
   user: 'fzsjdmm68733hgu4',
   password: 'kq86u525do1qwod4',
   database: 'f3uipf8n2hwoxtt3',
-  connectionLimit: 9
+  connectionLimit: 1
 });
 
 /* GET home page. */
