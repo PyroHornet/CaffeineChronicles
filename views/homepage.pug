@@ -34,9 +34,13 @@ html(lang='en')
     .container
       section#main-col
         h2.page-title Featured Books
-        .book
-
         //Display books
+        ul
+          each book in books
+            li= book.BookTitle
+            p #{book.Author}
+            p $#{book.Price}
+            p #{book.Desc}
       aside#sidebar
         .dark
           h3 Get Our Newsletter
