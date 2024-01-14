@@ -17,6 +17,10 @@ router.get('/', async function (req, res, next) {
   try {
     conn = await pool.getConnection();
     const rows = await conn.query("SELECT * FROM Books WHERE IsFeatured IS TRUE");
+    // Check if 'rows' is defined and is an array; if not, assign it an empty array
+    if (!Array.isArray(rows)) {
+      rows = [];
+    }
     res.render('homepage', { books: rows });
   } catch (err) {
     console.error(err);
