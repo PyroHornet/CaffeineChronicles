@@ -6,6 +6,10 @@ html(lang='en')
     meta(name='viewport', content='width=device-width, initial-scale=1.0')
     title Caffeine Chronicles
     link(rel='stylesheet' , href='homepagestyle.css')
+    style.
+      .book-item {
+        margin-bottom: 100px;
+      }
   body
     script(src='Script.js')
     header
@@ -27,8 +31,6 @@ html(lang='en')
               a(href='cart') Cart
             li
               a(href='newaccount') Create Account
-            li
-              a(href='login') Login
     section#showcase
       .container
         h1 Welcome to the World of Books and Coffee
@@ -36,10 +38,8 @@ html(lang='en')
     .container
       section#main-col
         h2.page-title Featured Books
-        .book
-
-
-        //Display books
+          h3 book title
+            p book description
       aside#sidebar
         .dark
           h3 Get Our Newsletter
