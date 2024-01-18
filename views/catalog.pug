@@ -5,9 +5,23 @@ html(lang="en")
     meta(name="viewport", content="width=device-width, initial-scale=1.0")
     title Books List
     link(rel='stylesheet', href='homepagestyle.css')
-    style.
+   style.
+      /* Add CSS to style the book items */
       .book-item {
         margin-bottom: 100px;
+      }
+      /* Add CSS to display books in two rows */
+      .book-list {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+      }
+      .book {
+        width: 48%; /* Adjust the width to control the number of books per row */
+        margin-bottom: 20px; /* Adjust the margin as needed */
+        /* Add CSS to reduce font size */
+        font-size: 14px;
+      }
       }
   body
     script(src="Script.js")
