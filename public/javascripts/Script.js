@@ -2,6 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Code to run after the document is fully loaded
 
     const newsletterForm = document.querySelector('#sidebar .quote form');
+    const cartButton = document.querySelector('.cart-button');
 
     newsletterForm.addEventListener('submit', function(event) {
         event.preventDefault(); // Prevents the form from submitting in the traditional way
@@ -18,6 +19,14 @@ document.addEventListener('DOMContentLoaded', () => {
             alert('Please enter a valid email address.');
         }
     });
+
+    // Function to redirect to the payment form
+    function redirectToPaymentForm() {
+        window.location.href = '/paymentform'; // Replace with the actual URL of your payment form
+    }
+
+    // Add a click event listener to the cart button
+    cartButton.addEventListener('click', redirectToPaymentForm);
 });
 
 function validateEmail(email) {
