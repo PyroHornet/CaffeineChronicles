@@ -6,8 +6,13 @@ html(lang="en")
     title Books List
     link(rel='stylesheet', href='/stylesheets/style.css')
     style.
+      /* Add CSS to style the book items */
       .book-item {
         margin-bottom: 100px;
+      }
+      /* Add a class for books to set the font size to 14pt */
+      .book-details {
+        font-size: 14pt;
       }
 body
     script(src="Script.js")
@@ -41,10 +46,11 @@ body
         h2.page-title Catalog
             ul
                 each book in books
-                    li= book.BookTitle
-                    p #{book.Author}
-                    p $#{book.Price}
-                    p #{book.Desc}
+                    li.book-item /* Add a class for book details */
+                      h3.book-details= book.BookTitle
+                      p.book-details= book.Author
+                      p.book-details= `$${book.Price}`
+                      p.book-details= book.Desc
       aside#sidebar
         div.dark
           h3 Get Our Newsletter
