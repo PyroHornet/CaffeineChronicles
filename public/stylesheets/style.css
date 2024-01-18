@@ -50,7 +50,7 @@ header .highlight, header .current a {
 /* Showcase */
 #showcase {
     min-height: 400px;
-    background: url("../images/bookstore.jpg") no-repeat 0 -100px; /* Update with appropriate image */
+    background: url("../images/TestLogo.png") no-repeat 0 -100px; /* Update with appropriate image */
     text-align: center;
     color: #fff5e6;
 }
