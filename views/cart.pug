@@ -44,7 +44,7 @@ html(lang='en')
               p Description: #{book.Desc}
               button.button_1(onclick=`removeItemFromCart("${book.BookTitle}", ${book.Price})`) Remove
           .cart-total
-            h3 Total: $#{calculateCartTotal(books)}
+            h3 Total: 
 
           button.button_1(onclick='redirectToPaymentForm()') Proceed to Payment
 
