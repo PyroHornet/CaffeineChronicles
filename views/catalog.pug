@@ -23,6 +23,18 @@ html(lang="en")
         font-weight: bold;
         margin-right: 5px;
       }
+      /* Add CSS for the cart button */
+      .cart-button {
+        background-color: #007bff;
+        color: #fff;
+        padding: 5px 10px;
+        border: none;
+        cursor: pointer;
+        transition: background-color 0.3s;
+      }
+      .cart-button:hover {
+        background-color: #0056b3;
+      }
 body
     script(src="Script.js")
     header
@@ -55,7 +67,7 @@ body
         h2.page-title Catalog
             ul
                 each book in books
-                    li.book-item 
+                    li.book-item /* Add a class for book details */
                       .book-details
                         p
                           span.label Title:
@@ -69,6 +81,8 @@ body
                         p.description
                           span.label Description:
                           | #{book.Desc}
+                        /* Add a button to add the book to the cart */
+                        button.cart-button(onclick="addToCart('#{book.BookTitle}')") Add to Cart
       aside#sidebar
         div.dark
           h3 Get Our Newsletter
@@ -80,3 +94,12 @@ body
             button.button_1(type="submit") Subscribe
     footer
       p Caffeine Chronicles &copy; 2024
+
+script.
+  // Function to add a book to the cart
+  function addToCart(bookTitle) {
+      let cart = JSON.parse(localStorage.getItem('cart')) || [];
+      cart.push(bookTitle);
+      localStorage.setItem('cart', JSON.stringify(cart));
+      alert(bookTitle + ' added to cart!');
+  }
