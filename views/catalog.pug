@@ -47,10 +47,14 @@ body
             ul
                 each book in books
                     li.book-item 
-                      h3.book-details= book.BookTitle
-                      p.book-details= book.Author
-                      p.book-details= `$${book.Price}`
-                      p.book-details= book.Desc
+                      span.label Title:
+                        h3= book.BookTitle
+                        span.label Author:
+                        p= book.Author
+                        span.label Price:
+                        p= `$${book.Price}`
+                        span.label Description:
+                        p= book.Desc
       aside#sidebar
         div.dark
           h3 Get Our Newsletter
