@@ -38,12 +38,15 @@ html(lang='en')
       .container
         section#main-col
           h2.page-title Your Cart
-          .cart-item
-            each book in books
+          each book in books
+            .cart-item
               h3 #{book.BookTitle}
-            h3 Book Title 1
-            p Description for Book Title 1.
-            button.button_1(onclick='removeItemFromCart("book_title_1");') Remove
+              p Description: #{book.Desc}
+              button.button_1(onclick='removeItemFromCart("#{book.BookTitle}", #{book.Price})') Remove
+          .cart-total
+            h3 Total: $#{calculateCartTotal(books)}
+
+          button.button_1(onclick='redirectToPaymentForm()') Proceed to Payment
 
         aside#sidebar
           .dark
@@ -53,8 +56,23 @@ html(lang='en')
       p Caffeine Chronicles &copy; 2024
 
     script.
-      function removeItemFromCart(itemId) {
-          // Here you should add logic taking care of removing
-          // an item from the cart on the server, and then updating the cart view
-          console.log(`${itemId} removed from the cart`);
+      function removeItemFromCart(bookTitle, bookPrice) {
+          // Here you should add logic to remove the item from the cart
+          // and update the cart view accordingly
+          console.log(`${bookTitle} removed from the cart`);
+      }
+
+      function calculateCartTotal(books) {
+          // Calculate the total price of books in the cart
+          let total = 0;
+          books.forEach((book) => {
+              total += parseFloat(book.Price);
+          });
+          return total.toFixed(2); // Format the total with 2 decimal places
+      }
+
+      function redirectToPaymentForm() {
+          // Here you can add logic to redirect users to the payment form
+          // or implement your payment process
+          console.log('Redirecting to payment form');
       }
