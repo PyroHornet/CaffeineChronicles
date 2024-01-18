@@ -5,11 +5,10 @@ html(lang="en")
     meta(name="viewport", content="width=device-width, initial-scale=1.0")
     title Books List
     link(rel='stylesheet', href='homepagestyle.css')
-   style.
+    style.
       .book-item {
         margin-bottom: 100px;
       }
-      
   body
     script(src="Script.js")
     header
@@ -40,7 +39,7 @@ html(lang="en")
     .container
       section#main-col
         h2.page-title Catalog
-            ul.book-list
+            ul
                 each book in books
                     li= book.BookTitle
                     p #{book.Author}
@@ -57,3 +56,4 @@ html(lang="en")
             button.button_1(type="submit") Subscribe
     footer
       p Caffeine Chronicles &copy; 2024
+
