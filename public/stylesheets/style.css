@@ -50,9 +50,10 @@ header .highlight, header .current a {
 /* Showcase */
 #showcase {
     min-height: 400px;
-    background: url("../images/TestLogo.png") no-repeat 0 -100px; /* Update with appropriate image */
+    background: url("../images/TestLogo.png") no-repeat right top; /* Update with appropriate image and position */
     text-align: center;
     color: #fff5e6;
+    background-size: auto 150px; /* Adjust the width (auto) and height (150px) as needed */
 }
 
 #showcase h1 {
