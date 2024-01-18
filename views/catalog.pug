@@ -6,13 +6,22 @@ html(lang="en")
     title Books List
     link(rel='stylesheet', href='/stylesheets/style.css')
     style.
-      
+      /* Add CSS to style the book items */
       .book-item {
         margin-bottom: 100px;
       }
-     
-      .book {
+      /* Add a class for books to set the font size to 12pt */
+      .book-details {
         font-size: 12pt;
+      }
+      /* Add a class for description to set the font size to 9pt */
+      .description {
+        font-size: 9pt;
+      }
+      /* Add CSS for labels */
+      .label {
+        font-weight: bold;
+        margin-right: 5px;
       }
 body
     script(src="Script.js")
@@ -47,14 +56,19 @@ body
             ul
                 each book in books
                     li.book-item 
-                      span.label Title:
-                        h3= book.BookTitle
-                        span.label Author:
-                        p= book.Author
-                        span.label Price:
-                        p= `$${book.Price}`
-                        span.label Description:
-                        p= book.Desc
+                      .book-details
+                        p
+                          span.label Title:
+                          | #{book.BookTitle}
+                        p
+                          span.label Author:
+                          | #{book.Author}
+                        p
+                          span.label Price:
+                          | $#{book.Price}
+                        p.description
+                          span.label Description:
+                          | #{book.Desc}
       aside#sidebar
         div.dark
           h3 Get Our Newsletter
@@ -66,4 +80,3 @@ body
             button.button_1(type="submit") Subscribe
     footer
       p Caffeine Chronicles &copy; 2024
-
