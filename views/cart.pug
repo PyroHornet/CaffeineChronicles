@@ -42,7 +42,7 @@ html(lang='en')
             .cart-item
               h3 #{book.BookTitle}
               p Description: #{book.Desc}
-              button.button_1(onclick='removeItemFromCart("#{book.BookTitle}", #{book.Price})') Remove
+              button.button_1(onclick=`removeItemFromCart("${book.BookTitle}", ${book.Price})`) Remove
           .cart-total
             h3 Total: $#{calculateCartTotal(books)}
 
@@ -54,3 +54,4 @@ html(lang='en')
 
     footer
       p Caffeine Chronicles &copy; 2024
+
