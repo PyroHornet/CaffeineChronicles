@@ -54,27 +54,3 @@ html(lang='en')
 
     footer
       p Caffeine Chronicles &copy; 2024
-
-    script.
-      function removeItemFromCart(bookTitle, bookPrice) {
-          // Here you should add logic to remove the item from the cart
-          // and update the cart view accordingly
-          console.log(`${bookTitle} removed from the cart`);
-      }
-
-    script.
-      function calculateCartTotal(books) {
-          // Calculate the total price of books in the cart
-          let total = 0;
-          books.forEach((book) => {
-              total += parseFloat(book.Price);
-          });
-          return total.toFixed(2); // Format the total with 2 decimal places
-      }
-
-    script.
-      function redirectToPaymentForm() {
-          // Here you can add logic to redirect users to the payment form
-          // or implement your payment process
-          console.log('Redirecting to payment form');
-      }
