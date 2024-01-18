@@ -40,11 +40,11 @@ html(lang='en')
           h2.page-title Your Cart
           each book in books
             .cart-item
-              h3 #{book.BookTitle}
+              p #{book.BookTitle}
               p Description: #{book.Desc}
               button.button_1(onclick=`removeItemFromCart("${book.BookTitle}", ${book.Price})`) Remove
           .cart-total
-            h3 Total: 
+           p Total: 
 
           button.button_1(onclick='redirectToPaymentForm()') Proceed to Payment
 
