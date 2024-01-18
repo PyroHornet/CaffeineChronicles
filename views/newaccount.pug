@@ -1,84 +1,93 @@
-doctype html
-html(lang="en")
-    head
-        meta(charset="UTF-8")
-        meta(name="viewport", content="width=device-width, initial-scale=1.0")
-        title Create a new account with us!
- link(rel='stylesheet', href='/stylesheets/style.css')
-        script(src="Script.js")
-    body
-        if errors
-            ul
-                each error in errors
-                    li= error.msg
-        header
-            div.container
-                div#branding
-                    h1
-                        span.highlight Caffeine Chronicles
-                nav
-                    ul
-                        li
-                            a(href="/") Home
-                        li
-                            a(href="catalog") Catalog
-                        li
-                            a(href="about") About
-                        li
-                            a(href="contact") Contact
-                        li
-                            a(href="cart") Cart
-                        li.current
-                            a(href='newaccount') Create Account
-                        li
-                            a(href='login') Login
-        section#showcase
-            div.container
-                h1 Welcome to the World of Books and Coffee
-                p Discover your next great read with us.
-        div.container
-            section#main-col
-                h2.page-title Join Us!
-                form(action='newaccount/submit-account-form' method="POST")
-                    div
-                        label(for='lastName') Last Name:
-                        input(type='text' id='lastName' name='lastName' required)
-                    div
-                        label(for='firstName') First Name:
-                        input(type='text' id='firstName' name='firstName' required)
-                    div
-                        label(for='phone') Phone Number:
-                        input(type='text' id='phone' name='phone' required)
-                    div
-                        label(for='email') Email Address:
-                        input(type='email' id='email' name='email' required)
-
-                    div
-                        label(for='address') Address:
-                        input(type='text' id='address' name='address' required)
-                    div
-                        label(for='city') City:
-                        input(type='text' id='city' name='city' required)
-
-                    div
-                        label(for='state') State:
-                        input(type='text' id='state' name='state' required)
-
-                    div
-                        label(for='postalCode') Postal Code:
-                        input(type='text' id='postalCode' name='postalCode' required)
-                    div
-                        input(type='submit' value='Submit')
-
-
-            aside#sidebar
-                div.dark
-                    h3 Get Our Newsletter
-                    form.quote
-                        div
-                            label Email
-                            br
-                            input(type="email", placeholder="Enter Email...")
-                        button.button_1(type="submit") Subscribe
-        footer
-            p Caffeine Chronicles © 2024
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create a new account with us!</title> <!-- Close the title tag -->
+    <link rel='stylesheet' href='/stylesheets/style.css'>
+    <script src="Script.js"></script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div id="branding">
+                <h1><span class="highlight">Caffeine Chronicles</span></h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="catalog">Catalog</a></li>
+                    <li><a href="about">About</a></li>
+                    <li><a href="contact">Contact</a></li>
+                    <li><a href="cart">Cart</a></li>
+                    <li class="current"><a href='newaccount'>Create Account</a></li>
+                    <li><a href='login'>Login</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <section id="showcase">
+        <div class="container">
+            <h1>Welcome to the World of Books and Coffee</h1>
+            <p>Discover your next great read with us.</p>
+        </div>
+    </section>
+    <div class="container">
+        <section id="main-col">
+            <h2 class="page-title">Join Us!</h2>
+            <form action='newaccount/submit-account-form' method="POST">
+                <div>
+                    <label for='lastName'>Last Name:</label>
+                    <input type='text' id='lastName' name='lastName' required>
+                </div>
+                <div>
+                    <label for='firstName'>First Name:</label>
+                    <input type='text' id='firstName' name='firstName' required>
+                </div>
+                <div>
+                    <label for='phone'>Phone Number:</label>
+                    <input type='text' id='phone' name='phone' required>
+                </div>
+                <div>
+                    <label for='email'>Email Address:</label>
+                    <input type='email' id='email' name='email' required>
+                </div>
+                <div>
+                    <label for='address'>Address:</label>
+                    <input type='text' id='address' name='address' required>
+                </div>
+                <div>
+                    <label for='city'>City:</label>
+                    <input type='text' id='city' name='city' required>
+                </div>
+                <div>
+                    <label for='state'>State:</label>
+                    <input type='text' id='state' name='state' required>
+                </div>
+                <div>
+                    <label for='postalCode'>Postal Code:</label>
+                    <input type='text' id='postalCode' name='postalCode' required>
+                </div>
+                <div>
+                    <input type='submit' value='Submit'>
+                </div>
+            </form>
+        </section>
+        <aside id="sidebar">
+            <div class="dark">
+                <h3>Get Our Newsletter</h3>
+                <form class="quote">
+                    <div>
+                        <label>Email</label><br>
+                        <input type="email" placeholder="Enter Email...">
+                    </div>
+                    <button class="button_1" type="submit">Subscribe</button>
+                </form>
+            </div>
+        </aside>
+    </div>
+    <footer>
+        <p>Caffeine Chronicles &copy; 2024</p>
+    </footer>
+</body>
+</html>
