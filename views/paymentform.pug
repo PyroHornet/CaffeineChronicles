@@ -5,10 +5,31 @@ html(lang='en')
     meta(name='viewport', content='width=device-width, initial-scale=1.0')
     title Mock Payment Form
     link(rel='stylesheet', href='/stylesheets/style.css')
-     script(src="Script.js")
+    script(src="Script.js")
   body
     header
-      h1 Caffeine Chronicles
+
+      header
+        .container
+          #branding
+            h1
+              span.highlight Caffeine Chronicles
+          nav
+            ul
+              li
+                a(href="/") Home
+              li.current
+                a(href="catalog") Catalog
+              li
+                a(href="about") About
+              li
+                a(href="contact") Contact
+              li
+                a(href="cart") Cart
+              li
+                a(href='newaccount') Create Account
+              li
+                a(href='login') Login
     .payment-container
       form#paymentForm
         h2 Payment Details

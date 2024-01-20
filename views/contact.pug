@@ -35,7 +35,7 @@ html(lang="en")
         div.container
             section#main-col
                 h2.page-title Need to get a hold of us?
-                    p Contact us at placeholderemail@live.com
+                    p Contact us at CaffeineChroniclesLLC@live.com
                     br
 
             aside#sidebar
@@ -46,6 +46,14 @@ html(lang="en")
                             label Email
                             br
                             input(type="email", placeholder="Enter Email...")
-                        button.button_1(type="submit") Subscribe
+                        button.button_1(type="submit", onclick="myFunction()") Subscribe
         footer
             p Caffeine Chronicles © 2024
+
+script.
+
+    //Function to alert and reload webpage after subscribing to newsletter
+    function myFunction() {
+    alert("Thanks for subscribing!");
+    window.location.reload();
+    }

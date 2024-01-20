@@ -17,6 +17,8 @@ var cartRouter = require('./routes/cart');
 var loginRouter = require('./routes/login');
 var newaccountRouter = require('./routes/newaccount');
 var acconfirmRouter = require('./routes/accountconfirmation');
+var paymentformRouter = require('./routes/paymentform');
+var userinfoRouter = require('./routes/userinfo');
 
 
 
@@ -50,6 +52,8 @@ app.use('/cart', cartRouter);
 app.use('/login', loginRouter);
 app.use('/newaccount', newaccountRouter);
 app.use('/accountconfirmation', acconfirmRouter);
+app.use('/paymentform', paymentformRouter);
+app.use('/userinfo', userinfoRouter);
 
 
 // catch 404 and forward to error handler

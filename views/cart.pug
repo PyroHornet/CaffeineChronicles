@@ -46,11 +46,13 @@ html(lang='en')
           .cart-total
            p Total: 
 
-          a.button_1(href='views/PaymentForm.pug') Proceed to Payment
+          a.button_1(href='paymentform') Proceed to Payment
 
         aside#sidebar
           .dark
             h3 Order Summary
+            each book in books
+              p #{book.BookTitle} $#{book.Price}
 
     footer
       p Caffeine Chronicles &copy; 2024
