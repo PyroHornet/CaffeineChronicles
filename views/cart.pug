@@ -27,40 +27,30 @@ html(lang='en')
               li.current
                 a(href='cart') Cart
               li
-                if isAuthenticated
-                  a(href="/userinfo")
-                    div.NavButton User
-
-                  li
-                    a(href="/logout")
-                      div.NavButton Logout
-                else
-                  a(href="/login")
-                    div.NavButton Log in Or Create An Account
+                a(href='newaccount') Create Account
+              li
+                a(href='login') Log In
 
     section#showcase
-      .container
-        h1 Welcome to the World of Books and Coffee
+    .container
+       section#main-col
+        p.page-title Your Cart
+         each book in books
+           .cart-item
+             p #{book.BookTitle}
+             p Description: #{book.Desc}
+             button.button_1(onclick=`removeItemFromCart("${book.BookTitle}", ${book.Price})`) Remove
+         .cart-total
+          p Total:
 
-      .container
-        section#main-col
-         p.page-title Your Cart
-          each book in books
-            .cart-item
-              p #{book.BookTitle}
-              p Description: #{book.Desc}
-              button.button_1(onclick=`removeItemFromCart("${book.BookTitle}", ${book.Price})`) Remove
-          .cart-total
-           p Total: 
+         a.button_1(href='paymentform') Proceed to Payment
 
-          a.button_1(href='paymentform') Proceed to Payment
+       aside#sidebar
+         .dark
+           h3 Order Summary
+           each book in books
+             p #{book.BookTitle} $#{book.Price}
 
-        aside#sidebar
-          .dark
-            h3 Order Summary
-            each book in books
-              p #{book.BookTitle} $#{book.Price}
-
-    footer
-      p Caffeine Chronicles &copy; 2024
+  footer
+     p Caffeine Chronicles &copy; 2024
 
