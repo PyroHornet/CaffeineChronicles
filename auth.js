@@ -27,7 +27,7 @@ router.get("/callback", (req, res, next) => {
             return next(err);
         }
         if (!user) {
-            
+            console.log("Authentication failed: ", info);
             return res.redirect("/login");
         }
         req.logIn(user, (err) => {
