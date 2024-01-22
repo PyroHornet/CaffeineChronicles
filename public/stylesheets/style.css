@@ -48,7 +48,7 @@ header .highlight, header .current a {
 }
 /* Showcase */
 #showcase {
-    min-height: 500px;
+    min-height: 550px;
     background: url("../images/showcase.jpeg") no-repeat center top;
     background-size: 100%; /* Showcase image is at 100% of its size */
     text-align: center;
