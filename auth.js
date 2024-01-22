@@ -17,7 +17,7 @@ router.get(
         scope: "openid email profile"
     }),
     (req, res) => {
-        res.redirect("/");
+        res.redirect("https://caffeine-chronicles-56787a68c136.herokuapp.com/");
     }
 );
 
@@ -35,7 +35,7 @@ router.get("/callback", (req, res, next) => {
             }
             const returnTo = req.session.returnTo;
             delete req.session.returnTo;
-            res.redirect(returnTo || "/");
+            res.redirect(returnTo || "https://caffeine-chronicles-56787a68c136.herokuapp.com/");
         });
     })(req, res, next);
 });
@@ -54,10 +54,10 @@ router.get("/logout", (req, res) => {
     if (port !== undefined && port !== 80 && port !== 443) {
         returnTo =
             process.env.NODE_ENV === "production"
-                ? `${returnTo}/`
-                : `${returnTo}:${port}/`;
+                ? `${returnTo}https://caffeine-chronicles-56787a68c136.herokuapp.com/`
+                : `${returnTo}:${port}https://caffeine-chronicles-56787a68c136.herokuapp.com/`;
     } else {
-        returnTo += '/';
+        returnTo += 'https://caffeine-chronicles-56787a68c136.herokuapp.com/';
     }
 
     const logoutURL = new URL(
