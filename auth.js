@@ -27,6 +27,7 @@ router.get("/callback", (req, res, next) => {
             return next(err);
         }
         if (!user) {
+            alert("No User Detected!");
             return res.redirect("/login");
         }
         req.logIn(user, (err) => {
@@ -35,7 +36,7 @@ router.get("/callback", (req, res, next) => {
             }
             const returnTo = req.session.returnTo;
             delete req.session.returnTo;
-            res.redirect(returnTo || "https://caffeine-chronicles-56787a68c136.herokuapp.com/callback");
+            res.redirect(returnTo || "/");
         });
     })(req, res, next);
 });
