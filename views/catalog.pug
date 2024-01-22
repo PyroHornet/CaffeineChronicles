@@ -55,9 +55,16 @@ body
             li
               a(href="cart") Cart
             li
-              a(href='newaccount') Create Account
-            li
-              a(href='login') Login
+              if isAuthenticated
+                a(href="/userinfo")
+                  div.NavButton User
+
+                li
+                  a(href="/logout")
+                    div.NavButton Logout
+              else
+                a(href="/login")
+                  div.NavButton Log in Or Create An Account
     section#showcase
       .container
         h1 Welcome to the World of Books and Coffee
@@ -91,7 +98,7 @@ body
               label Email
               br
               input(type="email", placeholder="Enter Email...")
-            button.button_1(type="submit") Subscribe
+            button.button_1(type="submit", onclick="myFunction()") Subscribe
     footer
       p Caffeine Chronicles &copy; 2024
 
@@ -103,3 +110,10 @@ script.
       localStorage.setItem('cart', JSON.stringify(cart));
       alert(bookTitle + ' added to cart!');
   }
+
+  function myFunction() {
+    alert("Thanks for subscribing!");
+    window.location.reload();
+  }
+
+

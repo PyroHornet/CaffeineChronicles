@@ -1,5 +1,6 @@
 var express = require('express');
 var router = express.Router();
+const pool = require('../mdb');
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {

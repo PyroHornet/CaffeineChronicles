@@ -2,7 +2,12 @@
   <configuration default="false" name="bin\www" type="NodeJSConfigurationType" path-to-js-file="bin/www" working-dir="$PROJECT_DIR$">
     <log_file alias="FirstLogs?" path="$PROJECT_DIR$/LogFiles.txt" skipped="false" />
     <envs>
+      <env name="AUTH0_CALLBACK_URL" value="http://localhost:3000/callback" />
+      <env name="AUTH0_CLIENT_ID" value="NSrWben4ZcNG5HbT8TxSNLXplGJwFLw5" />
+      <env name="AUTH0_CLIENT_SECRET" value="Ej9x0j_obqTVquu0gmexEWcupoVfFA6HPXh0ewS7iLMeHb68n_J0Xu6uWuID4fQd" />
+      <env name="AUTH0_DOMAIN" value="dev-lwcul5mh0dmmc46a.us.auth0.com" />
       <env name="DEBUG" value="express2.0:*" />
+      <env name="SESSION_SECRET" value="MDM1ZjBlMjkxNjRiNGI3YzkyNDNmYTA4Y2I5Y2VlYjRkNGRlNjliYTEzZjg0MDJiODkzMGM2YTVjYzlhODNhNA==" />
     </envs>
     <EXTENSION ID="com.jetbrains.nodejs.run.NodeStartBrowserRunConfigurationExtension">
       <browser name="37cae5b9-e8b2-4949-9172-aafa37fbc09c" start="true" url="http://localhost:3000/" />

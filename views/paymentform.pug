@@ -27,9 +27,16 @@ html(lang='en')
               li
                 a(href="cart") Cart
               li
-                a(href='newaccount') Create Account
-              li
-                a(href='login') Login
+                if isAuthenticated
+                  a(href="/userinfo")
+                    div.NavButton User
+
+                  li
+                    a(href="/logout")
+                      div.NavButton Logout
+                else
+                  a(href="/login")
+                    div.NavButton Log in Or Create An Account
     .payment-container
       form#paymentForm
         h2 Payment Details

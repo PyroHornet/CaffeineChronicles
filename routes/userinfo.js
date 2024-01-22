@@ -1,15 +1,14 @@
 var express = require('express');
 var router = express.Router();
 const validator = require('validator');
-const mariadb = require('mariadb');
-
-const pool = mariadb.createPool({
-    host: 'ao9moanwus0rjiex.cbetxkdyhwsb.us-east-1.rds.amazonaws.com',
-    user: 'fzsjdmm68733hgu4',
-    password: 'kq86u525do1qwod4',
-    database: 'f3uipf8n2hwoxtt3',
-    connectionLimit: 1
-});
+const pool = require('../mdb');
+const secured = (req, res, next) => {
+    if (req.user) {
+        return next();
+    }
+    req.session.returnTo = req.originalUrl;
+    res.redirect("/login");
+};
 
 const validatePhoneNumber = (phoneNumber) => {
     // Validator library can handle different phone number formats
@@ -22,9 +21,13 @@ const validateEmailAddress = (emailAddress) => {
 };
 
 /* GET users listing. */
-router.get('/', function(req, res, next) {
-    //res.send('respond with a resource');
-    res.render('userinfo', { title: 'Express' });
+router.get('/', secured, function(req, res, next) {
+    const { _raw, _json, ...userProfile } = req.user;
+
+    res.render("userinfo", {
+        title: "Profile",
+        userProfile: userProfile
+    });
 });
 
 router.post('/submit-account-form', async (req, res) => {
