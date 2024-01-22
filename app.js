@@ -71,6 +71,7 @@ const {requiresAuth} = require("express-openid-connect");
 var app = express();
 
 if (app.get("env") === "production") {
+  app.set('trust proxy', 1); // trust first proxy
   // Serve secure cookies, requires HTTPS
   session.cookie.secure = true;
 }
