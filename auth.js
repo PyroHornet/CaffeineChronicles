@@ -35,7 +35,7 @@ router.get("/callback", (req, res, next) => {
             }
             const returnTo = req.session.returnTo;
             delete req.session.returnTo;
-            res.redirect(returnTo || "/");
+            res.redirect(returnTo || "https://caffeine-chronicles-56787a68c136.herokuapp.com/callback");
         });
     })(req, res, next);
 });
