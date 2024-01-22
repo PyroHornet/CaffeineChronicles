@@ -16,7 +16,11 @@ const session = {
   secret: process.env.SESSION_SECRET,
   cookie: {},
   resave: false,
-  saveUninitialized: false
+  saveUninitialized: false,
+  cookie: {
+        sameSite: false,
+        // other cookie settings
+    }
 };
 
 //Passport Configuration
@@ -26,7 +30,7 @@ const strategy = new Auth0Strategy(
       clientID: process.env.AUTH0_CLIENT_ID,
       clientSecret: process.env.AUTH0_CLIENT_SECRET,
       callbackURL: process.env.AUTH0_CALLBACK_URL,
-      state: false 
+      state: true 
     },
     function(accessToken, refreshToken, extraParams, profile, done) {
       /**
