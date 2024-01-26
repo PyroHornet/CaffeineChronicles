@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 const validator = require('validator');
 const pool = require('../mdb');
+var idValue = "";
 const secured = (req, res, next) => {
     if (req.user) {
         return next();
@@ -21,16 +22,40 @@ const validateEmailAddress = (emailAddress) => {
 };
 
 /* GET users listing. */
-router.get('/', secured, function(req, res, next) {
-    const { _raw, _json, ...userProfile } = req.user;
+router.get('/', secured, async function(req, res, next) {
+    const { _raw, _json, user_id, ...userProfile } = req.user;
+    console.log('User ID:', user_id);
+    let conn;
+    try {
+        conn = await pool.getConnection();
+        const user_id = req.user.user_id;
+        const parts = user_id.split("|");
+        const idVal = parts[1];
+        idValue = +idVal;
+        const query = 'SELECT LastName, FirstName, Address, City, State, PostalCode, PhoneNumber, EmailAddress FROM Customers WHERE UserID = ?';
+        const rows = await conn.query(query, [idValue]);
+        if (rows.length === 0) {
+            res.send("No data detected");
+            return;
 
-    res.render("userinfo", {
-        title: "Profile",
-        userProfile: userProfile
-    });
+        }
+        const customer = rows[0];
+        res.render("userinfo", {
+            Customer: customer
+        });
+
+    }
+    catch (err) {
+        console.error(err);
+        res.status(500).send('Error occurred');
+    }
+    finally {
+        if (conn) conn.end();
+    }
+
 });
 
-router.post('/submit-account-form', async (req, res) => {
+router.post('/', async (req, res) => {
     const { lastName, firstName, phone, email, address, city, state, postalCode} = req.body;
     const errors = [];
 
@@ -46,12 +71,11 @@ router.post('/submit-account-form', async (req, res) => {
     } else {
         try {
             // Insert data into the Customers database
-            //Change insert to update later on!!!!!!!!!
-            const query = 'INSERT INTO Customers ( lastName, firstName, PhoneNumber, EmailAddress, Address, city, state, postalCode) VALUES ( ?, ?, ?, ?, ?, ?, ?, ?)';
-            const result = await pool.query(query, [ lastName, firstName, phone, email, address, city, state, postalCode]);
+            const query = 'UPDATE Customers SET lastName = ?, firstName = ?, PhoneNumber = ?, EmailAddress = ?, Address = ?, city = ?, state = ?, postalCode = ? WHERE UserID = ?';
+            const result = await pool.query(query, [ lastName, firstName, phone, email, address, city, state, postalCode, idValue ]);
 
-            res.render("userinfo");
-            alert("Your information has been saved!");
+
+            res.redirect('userinfo');
         } catch (error) {
             console.error(error);
             res.status(500).send('Error saving to database');

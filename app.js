@@ -5,6 +5,7 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const bodyParser = require('body-parser');
 const cors = require('cors');
+const methodOverride = require('method-override');
 require('dotenv').config();
 
 //Things needed for OAuth & passport
@@ -110,7 +111,7 @@ app.use((req, res, next) => {
 });
 
 
-
+app.use(methodOverride('_method'));
 app.use("/", authRouter);
 app.use(bodyParser.json());
 app.use(cors());

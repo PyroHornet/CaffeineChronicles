@@ -39,33 +39,38 @@ html(lang="en")
     .container
         section#main-col
             h2.page-title Verify your information below.
-            form(action='userinfo/submit-account-form' method='POST')
+            form(action='userinfo' method='POST')
                 div
                     label(for='lastName') Last Name:
-                    input#lastName(type='text' name='lastName' required='')
+                    input#lastName(type='text' name='lastName' required='' value= Customer.LastName)
                 div
                     label(for='firstName') First Name:
-                    input#firstName(type='text' name='firstName' required='')
+                    input#firstName(type='text' name='firstName' required='' value= Customer.FirstName)
                 div
                     label(for='phone') Phone Number:
-                    input#phone(type='text' name='phone' required='')
+                    input#phone(type='text' name='phone' required='' value= Customer.PhoneNumber)
                 div
                     label(for='email') Email Address:
-                    input#email(type='email' name='email' required='')
+                    input#email(type='email' name='email' required= '' value= Customer.EmailAddress readonly= ' ')
                 div
                     label(for='address') Address:
-                    input#address(type='text' name='address' required='')
+                    input#address(type='text' name='address' required='' value= Customer.Address)
+
                 div
                     label(for='city') City:
-                    input#city(type='text' name='city' required='')
+                    input#city(type='text' name='city' required='' value= Customer.City)
                 div
                     label(for='state') State:
-                    input#state(type='text' name='state' required='')
+                    input#state(type='text' name='state' required='' value= Customer.State)
                 div
                     label(for='postalCode') Postal Code:
-                    input#postalCode(type='text' name='postalCode' required='')
+                    input#postalCode(type='text' name='postalCode' required='' value= Customer.PostalCode)
+
                 div
-                    input(type='submit' value='Submit')
+                    button(type='submit' value='Save') Save
+                    br
+                    br
+
         aside#sidebar
             .dark
                 h3 Get Our Newsletter
@@ -74,6 +79,12 @@ html(lang="en")
                         label Email
                         br
                         input(type='email' placeholder='Enter Email...')
-                    button.button_1(type='submit') Subscribe
+                    button.button_1(type='submit' onclick='myFunction()') Subscribe
     footer
         p Caffeine Chronicles &copy; 2024
+
+script.
+    function myFunction() {
+        alert("Thanks for subscribing!");
+        window.location.reload();
+    }
