@@ -1,5 +1,48 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Caffeine Chronicles Cart</title><link rel="stylesheet" href="homepagestyle.css"></head><body><script src="Script.js"></script><header><div class="container"><div id="branding"><h1><span class="highlight">Caffeine</span>Chronicles</h1><nav><ul><li><a href="/">Home</a></li><li><a href="catalog">Catalog</a></li><li><a href="about">About</a></li><li><a href="contact">Contact</a></li><li><a href="cart">Cart</a></li></ul></nav></div></div></header><section id="showcase"><div class="container"><h1>Welcome to the World of Books and Coffee</h1></div><div class="container"><section id="main-col"><h2 class="page-title">Your Cart</h2><div class="cart-item"><h3>Book Title 1</h3><p>Description for Book Title 1.</p><button class="button_1" onclick="removeItemFromCart(" book_title_1")">Remove</button></div></section><aside id="sidebar"><div class="dark"><h3>Order Summary</h3></div></aside></div></section><footer><p>Caffeine Chronicles &copy; 2024</p></footer><script>function removeItemFromCart(itemId) {
-    // Here you should add logic taking care of removing
-    // an item from the cart on the server, and then updating the cart view
-    console.log(`${itemId} removed from the cart`);
-}</script></body></html>
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Caffeine Chronicles Cart</title><link rel="stylesheet" href="/stylesheets/style.css"></head><body><!--script(src='Script.js')--><header><div class="container"><div id="branding"><h1><span class="highlight">Caffeine</span>Chronicles</h1><nav><ul><li><a href="/">Home</a></li><li><a href="catalog">Catalog</a></li><li><a href="about">About</a></li><li><a href="contact">Contact</a></li><li class="current"><a href="cart">Cart<li><a href="/login"><div class="NavButton">Log In</div></a></li></a></li></ul></nav></div></div></header><img src="../images/alt-showcase.jpeg" alt="Showcase photo" width="100%"><div class="container"><section id="main-col"><p class="page-title" style="font-size: 28px; color: #333; padding: 10px 0; text-shadow: 1px 1px 0px #eee; font-weight: bold; text-align: center;">Your Cart</p><a href="/login" style="font-size: 18px;">Sign In to Add to your Cart</a><aside id="sidebar"><div class="dark"><h3>Total</h3><p>$0.00</p></div></aside></section></div></body><footer><p>Caffeine Chronicles &copy; 2024<script>document.addEventListener('DOMContentLoaded', function () {
+    const paymentButton = document.querySelector('a.button_1');
+    paymentButton.addEventListener('mouseover', function () {
+        this.style.backgroundColor = '#45a049'; // Darker shade for hover
+        this.style.borderColor = '#45a049';
+    });
+    paymentButton.addEventListener('mouseout', function () {
+        this.style.backgroundColor = '#4CAF50'; // Original color
+        this.style.borderColor = '#4CAF50';
+    });
+});
+
+function deleteAllFromCart(buttonElement) {
+    const bookTitle = buttonElement.getAttribute('data-book-title');
+
+    fetch('/cart', {
+        method: 'DELETE',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({bookTitle: bookTitle})
+    })
+        .then(response => {
+            if (response.ok) {
+                console.log('Item deleted successfully');
+                return response.text();
+                // Optionally, reload or update the UI
+            } else {
+                throw new Error('Failed to delete items');
+                //console.error('Server responded with an error status');
+                return response.json();
+            }
+        })
+        .then(data => {
+            if (data.success) {
+                alert(data.message);
+                // Display server-provided message, if available
+            }
+        })
+        .then(message => {
+            console.log(message);
+            alert("Items Deleted");
+            window.location.reload();
+            // Update UI or take other actions
+        })
+        .catch(error => {
+            console.error('Fetch error:', error);
+            alert('An error occurred while trying to delete the item. Please try again.');
+        });
+}</script></p></footer></html>

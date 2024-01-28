@@ -85,8 +85,17 @@ body
                         p.description
                           span.label Description:
                           | #{book.Desc}
-                    
-                        button.cart-button(onclick="addToCart('#{book.BookTitle}')") Add to Cart
+                      if isAuthenticated
+                        .quantity-selection
+                          label(for='qty-#{book.BookID}') Quantity:
+                          select(id='select-#{book.BookID}')
+                            option(value='1') 1
+                            //option(value='2') 2
+                            //option(value='3') 3
+                        button.cart-button(type="button", data-book-id=book.BookID, onclick="addToCart(this)") Add to Cart
+
+                      else
+                        a(href='/login' style='font-size: 18px;') Sign In to Add to your Cart
       aside#sidebar
         div.dark
           h3 Get Our Newsletter
@@ -101,12 +110,46 @@ body
 
 script.
   // Function to add a book to the cart
-  function addToCart(bookTitle) {
-      let cart = JSON.parse(localStorage.getItem('cart')) || [];
-      cart.push(bookTitle);
-      localStorage.setItem('cart', JSON.stringify(cart));
-      alert(bookTitle + ' added to cart!');
-  }
+   function addToCart(buttonElement) {
+    // Retrieve the book ID from the button's data attribute
+    const bookID = buttonElement.getAttribute('data-book-id');
+    console.log(bookID);
+
+     // Use the book ID to construct the ID selector for the corresponding select element
+     const selector = '#select-' + bookID;
+     console.log('Selector:', selector);
+     const quantitySelect = document.querySelector(selector);
+     console.log(quantitySelect);
+     if (!quantitySelect) {
+       console.error('Element not found for selector:', selector);
+     }
+
+     // Retrieve the selected quantity value
+     const quantity = quantitySelect ? quantitySelect.value : 1; // Default to 1 if not found
+
+      //console.log('Book ID:', bookID, 'Quantity:', quantity);
+      //alert('Function called with Book ID: ' + bookID + ' and Quantity: ' + quantity);
+
+     fetch('/catalog', {
+       method: 'POST',
+       headers: {
+         'Content-Type': 'application/json',
+       },
+       body: JSON.stringify({
+         bookID: bookID,
+         quantity: quantity, // This now includes the quantity from the select element
+         // Include other relevant information if needed
+       }),
+     })
+             .then(response => response.json())
+             .then(data => {
+               alert(data.message);// Assuming the server responds with a message
+             })
+             .catch((error) => {
+               console.error('Error:', error);
+             });
+     alert("Books have been added!")
+   }
 
   function myFunction() {
     alert("Thanks for subscribing!");

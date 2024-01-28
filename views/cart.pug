@@ -7,7 +7,7 @@ html(lang='en')
     link(rel='stylesheet', href='/stylesheets/style.css')
 
   body
-    script(src='Script.js')
+    //script(src='Script.js')
     header
       .container
         #branding
@@ -26,31 +26,124 @@ html(lang='en')
                 a(href='contact') Contact
               li.current
                 a(href='cart') Cart
-              li
-                a(href='newaccount') Create Account
-              li
-                a(href='login') Log In
+                  li
+                      if isAuthenticated
+                          a(href="/userinfo")
+                              div.NavButton User
+
+                          li
+                              a(href="/logout")
+                                  div.NavButton Logout
+                      else
+                          a(href="/login")
+                              div.NavButton Log In
 
     img(src='../images/alt-showcase.jpeg', alt='Showcase photo', width='100%')
     .container
        section#main-col
-        p.page-title Your Cart
-         each book in books
-           .cart-item
-             p #{book.BookTitle}
-             p Description: #{book.Desc}
-             button.button_1(onclick=`removeItemFromCart("${book.BookTitle}", ${book.Price})`) Remove
-         .cart-total
-          p Total:
+        p.page-title(style='font-size: 28px; color: #333; padding: 10px 0; text-shadow: 1px 1px 0px #eee; font-weight: bold; text-align: center;') Your Cart
 
-         a.button_1(href='paymentform') Proceed to Payment
+        if isAuthenticated
+            if books.length > 0
+                 each book in books
+                   .cart-item
+                     p Book: #{book.BookTitle}
+                     p QTY: #{book.TotalQuantity}
+                     p Price: #{book.TotalPrice}
 
-       aside#sidebar
-         .dark
-           h3 Order Summary
-           each book in books
-             p #{book.BookTitle} $#{book.Price}
+                       button.delete-group-button(data-book-title=book.BookTitle onclick= "deleteAllFromCart(this)") Delete All
+                     br
+                     br
+                     br
+                     br
+                 .cart-total
+                  p Order Summary: $#{totalCartPrice.toFixed(2)}
+            else
+                p No books found in your cart
+
+        else
+          a(href='/login' style='font-size: 18px;') Sign In to Add to your Cart
+
+        if isAuthenticated
+
+            if books.length > 0
+
+              aside#sidebar
+                .dark
+                  h3 Total
+                  p Tax(%3): $#{tax.toFixed(2)}
+                  p Shipping:  $#{shipping.toFixed(2)}
+                  p $ #{absoluteTotal.toFixed(2)}
+                  br
+                  a.button_1(href='paymentform' style='background-color: #4CAF50; color: white; padding: 10px 20px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; border-radius: 5px; border: 2px solid #4CAF50; transition: all 0.3s ease-in-out;') Proceed to Payment
+            else
+                aside#sidebar
+                    .dark
+                        h3 Total
+                        p $0.00
+
+
+
+        else
+          aside#sidebar
+           .dark
+             h3 Total
+             p $0.00
+
+
 
   footer
      p Caffeine Chronicles &copy; 2024
+
+
+         script.
+             document.addEventListener('DOMContentLoaded', function () {
+                 const paymentButton = document.querySelector('a.button_1');
+                 paymentButton.addEventListener('mouseover', function () {
+                     this.style.backgroundColor = '#45a049'; // Darker shade for hover
+                     this.style.borderColor = '#45a049';
+                 });
+                 paymentButton.addEventListener('mouseout', function () {
+                     this.style.backgroundColor = '#4CAF50'; // Original color
+                     this.style.borderColor = '#4CAF50';
+                 });
+             });
+
+             function deleteAllFromCart(buttonElement) {
+                 const bookTitle = buttonElement.getAttribute('data-book-title');
+
+                 fetch('/cart', {
+                     method: 'DELETE',
+                     headers: {'Content-Type': 'application/json'},
+                     body: JSON.stringify({bookTitle: bookTitle})
+                 })
+                     .then(response => {
+                         if (response.ok) {
+                             console.log('Item deleted successfully');
+                             return response.text();
+                             // Optionally, reload or update the UI
+                         } else {
+                             throw new Error('Failed to delete items');
+                             //console.error('Server responded with an error status');
+                             return response.json();
+                         }
+                     })
+                     .then(data => {
+                         if (data.success) {
+                             alert(data.message);
+                             // Display server-provided message, if available
+                         }
+                     })
+                     .then(message => {
+                         console.log(message);
+                         alert("Items Deleted");
+                         window.location.reload();
+                         // Update UI or take other actions
+                     })
+                     .catch(error => {
+                         console.error('Fetch error:', error);
+                         alert('An error occurred while trying to delete the item. Please try again.');
+                     });
+             }
+
 
