@@ -45,15 +45,20 @@ html(lang='en')
     img(src='../images/showcase.jpeg', alt='Showcase photo', width='100%')
     .container
       section#main-col
-        h2.page-title Featured Books
-          h3 book title
-            p book description
+        h2.page-title(style='border-bottom: 2px solid #FFA500; padding-bottom: 5px;') Featured Books
+          br
+          h3 A Gentleman in Moscow: A Novel
+            p Author: Amor Towles
+            br
+
+          h4 Astrophysics for People in a Hurry
+            p Author: Neil deGrasse Tyson
       aside#sidebar
         .dark
           h3 Get Our Newsletter
           form.quote
             div
-              label Email
+              label
               br
               input(type='email', placeholder='Enter Email...')
             button.button_1(type='submit', onclick="myFunction()") Subscribe
