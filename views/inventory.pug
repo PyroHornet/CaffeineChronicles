@@ -1,0 +1,67 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    title Inventory Management
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    style.
+      .inventory-item {
+        margin-bottom: 20px;
+      }
+      .item-details {
+        font-size: 12pt;
+      }
+      .description {
+        font-size: 9pt;
+      }
+      .edit-button, .add-button {
+        background-color: #4CAF50; /* Green background */
+        color: white;
+        padding: 5px 10px;
+        border: none;
+        cursor: pointer;
+        transition: background-color 0.3s;
+      }
+      .edit-button:hover, .add-button:hover {
+        background-color: #367B39; /* Darker green */
+      }
+  body
+    header
+      .container
+        #branding
+          h1
+            span.highlight Inventory
+        nav
+          ul
+            li
+              a(href='/') Home
+            li.current
+              a(href='/inventory') Inventory
+            li
+              a(href='/about') About
+            li
+              a(href='/contact') Contact
+    .container
+      section#main-col
+        h2.page-title Inventory Management
+        ul
+          each item in inventoryItems
+            li.inventory-item
+              .item-details
+                p
+                  span.label ID:
+                  | #{item.id}
+                p
+                  span.label Name:
+                  | #{item.name}
+                p
+                  span.label Quantity:
+                  | #{item.quantity}
+                p.description
+                  span.label Description:
+                  | #{item.description}
+              a.edit-button(href=`/inventory/edit/${item.id}`) Edit Item
+        a.add-button(href='/inventory/add') Add New Item
+    footer
+      p Inventory Management System &copy; 2024
