@@ -43,7 +43,7 @@ header li {
 }
 
 header .highlight, header .current a {
-    color: #de641b; /* Darker orange for emphasis */
+    color: #fff5e6;
     font-weight: bold;
 }
 /* Newsletter */
