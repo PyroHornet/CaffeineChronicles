@@ -52,6 +52,14 @@ header .highlight, header .current a {
     background: #8b4513; /* Saddle brown */
     color: #fff5e6;
 }
-
+/* Payment Form Styles */
+.payment-container {
+    width: 80%;
+    margin: 20px auto;
+    padding: 20px;
+    background: #fff5e6; /* Off-white background, harmonizing with header text color */
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
 
 /* Remaining code is unchanged... */
