@@ -1,0 +1,24 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        title Caffeine Chronicles 
+        link(rel='stylesheet' , href='/stylesheets/style.css')
+        script(src="Script.js")
+    body
+        header
+            div.container
+                div#branding
+                    h1
+                        span.highlight Caffeine Chronicles
+
+                        h3 Thank you for your order!
+                        h3 You Will Now Be Redirected To Your Orders Page
+                        script.
+                            setTimeout(function () {
+                                window.location.href = 'orders';  // Redirect after 2 seconds
+                            }, 3000);
+
+                        footer
+                            p Caffeine Chronicles © 2024

@@ -46,6 +46,16 @@ router.get('/', async function (req, res, next) {
                 absoluteTotal: absoluteTotal
 
             });
+            req.session.absoluteTotal = absoluteTotal.toFixed(2);
+            req.session.save(err => {
+                if (err) {
+                    // handle error
+                    console.error('Session save error:', err);
+                }
+                res.render("cart", { /* your data for rendering */ });
+            });
+
+
 
         } catch (err) {
             console.error(err);

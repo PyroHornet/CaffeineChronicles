@@ -1,0 +1,103 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        title Books List
+        link(rel='stylesheet', href='/stylesheets/style.css')
+        style.
+            /* Add CSS to style the book items */
+            .book-item {
+                margin-bottom: 100px;
+            }
+            /* Add a class for books to set the font size to 12pt */
+            .book-details {
+                font-size: 12pt;
+            }
+            /* Add a class for description to set the font size to 9pt */
+            .description {
+                font-size: 9pt;
+            }
+            /* Add CSS for labels */
+            .label {
+                font-weight: bold;
+                margin-right: 5px;
+            }
+            /* Add CSS for the cart button */
+            .cart-button {
+                background-color: #007bff;
+                color: #fff;
+                padding: 5px 10px;
+                border: none;
+                cursor: pointer;
+                transition: background-color 0.3s;
+            }
+            .cart-button:hover {
+                background-color: #0056b3;
+            }
+body
+    script(src="Script.js")
+    header
+        .container
+            #branding
+                h1
+                    span.highlight Caffeine Chronicles
+            nav
+                ul
+                    li
+                        a(href="/") Home
+                    li
+                        a(href="catalog") Catalog
+                    li
+                        a(href="about") About
+                    li
+                        a(href="contact") Contact
+                    li
+                        a(href="cart") Cart
+                    li
+                        if isAuthenticated
+                            a(href="/userinfo")
+                                div.NavButton User
+
+                            li
+                                a(href="/logout")
+                                    div.NavButton Logout
+                            li.current
+                                a(href="/orders")
+                                    div.NavButton Orders
+                        else
+                            a(href="/login")
+                                div.NavButton Log In
+    img(src='../images/alt-showcase.jpeg', alt='Showcase photo', width='100%')
+    .container
+        section#main-col
+            h2.page-title(style='border-bottom: 2px solid #FFA500; padding-bottom: 5px;') Orders
+                ul
+                    if isAuthenticated
+                        if Orders.length > 0
+                            each order in Orders
+                                li.order-item
+                                    .order-details
+                                        p Address: #{order.Address}
+                                        p City: #{order.City}
+                                        p State: #{order.State}
+                                        p ZIP: #{order.PostalCode}
+                                        p Price: #{order.OrderTotal}
+                                        br
+                        else
+                            p No orders connected to your account(Yet).
+
+
+                    else
+                        a(href='/login' style='font-size: 18px;') Sign In to See Your Orders
+        aside#sidebar
+            div.dark
+                h3 Get Our Newsletter
+                form.quote
+                    div
+                        label
+                        br
+                        input(type="email", placeholder="Enter Email...")
+                    button.button_1(type="submit", onclick="myFunction()") Subscribe
+    footer
+        p Caffeine Chronicles &copy; 2024

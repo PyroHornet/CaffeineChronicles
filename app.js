@@ -15,11 +15,11 @@ const Auth0Strategy = require("passport-auth0");
 const authRouter = require("./auth");
 const session = {
   secret: process.env.SESSION_SECRET,
-  cookie: {},
   resave: false,
   saveUninitialized: false,
   cookie: {
-        sameSite: false,
+        sameSite: false
+
         // other cookie settings
     }
 };
@@ -64,6 +64,8 @@ var newaccountRouter = require('./routes/newaccount');
 var acconfirmRouter = require('./routes/accountconfirmation');
 var paymentformRouter = require('./routes/paymentform');
 var userinfoRouter = require('./routes/userinfo');
+var paymentConfirmRouter = require('./routes/paymentConfirmation');
+var ordersRouter = require('./routes/orders');
 const {requiresAuth} = require("express-openid-connect");
 
 
@@ -139,6 +141,8 @@ app.use('/newaccount', newaccountRouter);
 app.use('/accountconfirmation', acconfirmRouter);
 app.use('/paymentform', paymentformRouter);
 app.use('/userinfo', userinfoRouter);
+app.use('/paymentConfirmation', paymentConfirmRouter);
+app.use('/orders', ordersRouter);
 
 
 
