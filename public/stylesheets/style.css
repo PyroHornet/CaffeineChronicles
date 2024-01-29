@@ -93,6 +93,7 @@ header .highlight, header .current a {
 .payment-container .pay-button:hover {
     background-color: #de641b; /* A darker shade for hover state */
 }
+
 .button_1 {
     background-color: #ff7f50; /* Coral orange to match the header */
     color: #fff5e6; /* Off-white text */
