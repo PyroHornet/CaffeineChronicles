@@ -6,6 +6,19 @@ html(lang='en')
     title Payment Form
     link(rel='stylesheet', href='/stylesheets/style.css')
     //script(src="Script.js")
+
+/* Add CSS for the cart button */
+      .pay-button {
+        background-color: #ff7f50;
+        color: #fff;
+        padding: 5px 10px;
+        border: none;
+        cursor: pointer;
+        transition: background-color 0.3s;
+      }
+      .pay-button:hover {
+        background-color: #5a3a22;
+      }
   body
     header
 
@@ -90,6 +103,6 @@ html(lang='en')
           br
         div
           p Total being charged: $#{absoluteTotal}
-        button(type='submit') Pay Now
+        button.pay-button(type='submit') Pay Now
 
 
