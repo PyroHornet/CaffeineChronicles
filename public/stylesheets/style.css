@@ -93,5 +93,22 @@ header .highlight, header .current a {
 .payment-container .pay-button:hover {
     background-color: #de641b; /* A darker shade for hover state */
 }
+.button_1 {
+    background-color: #ff7f50; /* Coral orange to match the header */
+    color: #fff5e6; /* Off-white text */
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 2px solid #4CAF50; /* Green border */
+    transition: all 0.3s ease-in-out;
+}
+
+.button_1:hover {
+    background-color: #de641b; /* A darker shade for hover state */
+    border-color: #de641b;
+}
 
 /* Remaining code is unchanged... */
