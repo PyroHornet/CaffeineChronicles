@@ -52,4 +52,49 @@ header .highlight, header .current a {
     background: #8b4513; /* Saddle brown */
     color: #fff5e6;
 }
+/* Payment Form Styles to Match Your Current Theme */
+.payment-form {
+    font-family: 'Georgia', serif;
+    max-width: 400px;
+    margin: 20px auto;
+    padding: 20px;
+    background: #fff5e6; /* Off-white background, similar to header text color */
+    border: 3px solid #de641b; /* Border color to match the header bottom border */
+    border-radius: 5px;
+    color: #5a3a22; /* Dark brown text to match body */
+}
+
+.payment-form .form-group {
+    margin-bottom: 20px;
+}
+
+.payment-form .form-group label {
+    display: block;
+    margin-bottom: 5px;
+    color: #5a3a22; /* Dark brown text to match body */
+}
+
+.payment-form .form-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ff7f50; /* Coral orange to match header */
+    border-radius: 4px;
+    background: #fff8f2; /* Light cream background to match body */
+    color: #5a3a22; /* Dark brown text to match body */
+}
+
+.payment-form button[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    background-color: #8b4513; /* Saddle brown to match sidebar */
+    color: #fff5e6; /* Off-white text to match header text */
+    border-radius: 4px;
+    cursor: pointer;
+    font-family: 'Georgia', serif;
+}
+
+.payment-form button[type="submit"]:hover {
+    background-color: #ff7f50; /* Coral orange to match header */
+}
 /* Remaining code is unchanged... */
