@@ -61,5 +61,21 @@ header .highlight, header .current a {
     border-radius: 5px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
+.payment-container label {
+    display: block;
+    margin-bottom: 8px;
+    color: #5a3a22; /* Dark brown text */
+    font-family: 'Georgia', serif;
+}
+
+.payment-container input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ff7f50; /* Coral orange, tying into header background */
+    border-radius: 4px;
+    background: #fff8f2; /* Light cream background to resonate with body background */
+    color: #5a3a22; /* Dark brown text */
+    font-family: 'Georgia', serif;
+}
 
 /* Remaining code is unchanged... */
