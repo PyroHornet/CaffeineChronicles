@@ -52,62 +52,6 @@ header .highlight, header .current a {
     background: #8b4513; /* Saddle brown */
     color: #fff5e6;
 }
-/* Payment Form Styles */
-.payment-container {
-    width: 80%;
-    margin: 20px auto;
-    padding: 20px;
-    background: #fff5e6; /* Off-white background, harmonizing with header text color */
-    border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
 
-.payment-form h2 {
-    color: #5a3a22; /* Dark brown text to maintain consistency */
-    margin-bottom: 20px;
-}
 
-.form-group {
-    margin-bottom: 15px;
-}
-
-.form-group label {
-    display: block;
-    margin-bottom: 8px;
-    color: #5a3a22; /* Dark brown text */
-    font-family: 'Georgia', serif;
-}
-
-.form-group input {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ff7f50; /* Coral orange, tying into header background */
-    border-radius: 4px;
-    background: #fff8f2; /* Light cream background to resonate with body background */
-    color: #5a3a22; /* Dark brown text */
-    font-family: 'Georgia', serif;
-}
-
-.form-group input:focus {
-    outline: none;
-    border-color: #de641b; /* Focus state with a darker orange */
-}
-
-button[type="submit"] {
-    width: 100%;
-    padding: 10px;
-    border: none;
-    background-color: #8b4513; /* Saddle brown, taken from sidebar dark class */
-    color: #fff5e6; /* Off-white text, in line with header text color */
-    border-radius: 4px;
-    cursor: pointer;
-    font-family: 'Georgia', serif;
-    margin-top: 20px; /* Add some space above the submit button */
-}
-
-button[type="submit"]:hover {
-    background-color: #ff7f50; /* Coral orange for hover state, matching header */
-}
-
-}
 /* Remaining code is unchanged... */
