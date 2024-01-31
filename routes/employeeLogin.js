@@ -5,7 +5,7 @@ const pool = require('../mdb');
 /* GET users listing. */
 router.get('/', function(req, res, next) {
     //res.send('respond with a resource');
-    res.render("EmployeeLogin");
+    res.render("employeeLogin");
 });
 
 module.exports = router;
