@@ -1,0 +1,32 @@
+doctype html
+html
+  head
+    title Employee Dashboard
+    link(rel='stylesheet' , href='/stylesheets/style.css')
+  body
+    header
+      div.container
+                div#branding
+      .container
+        h1 Bookstore Dashboard
+        ul
+          li: a(href='/employees/inventory') Inventory
+          li: a(href='/employees/orders') Orders
+          li: a(href='/employees/settings') Settings
+    
+    .container.dashboard
+      h2 Welcome, [Employee Name]
+      // Dashboard Widgets with Links
+      .dashboard-widgets
+        .widget
+          h3 Inventory Overview
+          p: a(href='/employees/inventory') View Inventory Details
+        .widget
+          h3 Recent Orders
+          p: a(href='/employees/orders') View Recent Orders
+        .widget
+          h3 Settings
+          p: a(href='/employees/settings') Go to Settings
+
+     footer
+            p Caffeine Chronicles © 2024
