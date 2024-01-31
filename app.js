@@ -8,6 +8,8 @@ const cors = require('cors');
 const methodOverride = require('method-override');
 require('dotenv').config();
 
+var app = express();
+
 //Things needed for OAuth & passport
 const expressSession = require("express-session");
 const passport = require("passport");
@@ -47,11 +49,6 @@ const strategy = new Auth0Strategy(
 );
 
 
-
-
-
-
-
 var homepageRouter = require('./routes/homepage');
 var usersRouter = require('./routes/users');
 var contactRouter = require('./routes/contact');
@@ -68,12 +65,10 @@ var paymentConfirmRouter = require('./routes/paymentConfirmation');
 var ordersRouter = require('./routes/orders');
 var employeeLoginRouter = require("./routes/employeeLogin");
 var adminRouter = require("./routes/admin");
+var inventoryRouter = require("./routes/inventory");
+var dashboardRouter = require("./routes/dashboard");
 const {requiresAuth} = require("express-openid-connect");
 
-
-
-
-var app = express();
 
 if (app.get("env") === "production") {
   app.set('trust proxy', 1); // trust first proxy
@@ -147,6 +142,8 @@ app.use('/paymentConfirmation', paymentConfirmRouter);
 app.use('/orders', ordersRouter);
 app.use('/employeeLogin', employeeLoginRouter);
 app.use('/admin', adminRouter);
+app.use('/inventory', inventoryRouter);
+app.use('/dashboard', dashboardRouter);
 
 
 
