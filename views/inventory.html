@@ -1,60 +1,20 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Caffeine Chronicles - Inventory Management</title>
-    <link rel="stylesheet" href="/stylesheets/style.css">
-    <script src="Script.js"></script>
-</head>
-<body>
-<header>
-    <div class="container">
-        <div id="branding">
-            <h1><span class="highlight">Caffeine Chronicles</span></h1>
-        </div>
-        <nav>
-            <ul>
-                <li><a href="/">Home</a></li>
-                <li class="current"><a href="inventory">Inventory</a></li>
-                <li><a href="about">About</a></li>
-                <li><a href="contact">Contact</a></li>
-                <li><a href="cart">Cart</a></li>
-                <li><a href="/login"><div class="NavButton">Log In</div></a></li>
-            </ul>
-        </nav>
-    </div>
-</header>
-<img src="../images/alt-showcase.jpeg" alt="Showcase photo" width="100%">
-<div class="container">
-    <section id="main-col">
-        <h2 class="page-title">Inventory Management</h2>
-        <p>Welcome to the Inventory Management System. Here, you can view, add, edit, or delete items from the inventory, ensuring that the Caffeine Chronicles catalog is always up-to-date and accurate.</p>
-        <!-- Inventory list and management options will be dynamically generated here -->
-        <div class="inventory-list">
-            <!-- Placeholder for inventory items. Ideally, this part is generated dynamically through server-side scripting or client-side JavaScript -->
-            <p>No items in inventory. Add some!</p>
-        </div>
-    </section>
-    <aside id="sidebar">
-        <div class="dark">
-            <h3>Manage Inventory</h3>
-            <form class="quote">
-                <div>
-                    <button class="button_1" type="button" onclick="addNewItem()">Add New Item</button>
-                </div>
-            </form>
-        </div>
-    </aside>
-</div>
-<footer>
-    <p>Caffeine Chronicles © 2024</p>
-</footer>
-<script>
-// Placeholder function for adding a new item. Implement as needed.
-function addNewItem() {
-    alert("Add new item functionality to be implemented.");
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Inventory Management</title><link rel="stylesheet" href="/stylesheets/style.css"><style>.inventory-item {
+  margin-bottom: 20px;
 }
-</script>
-</body>
-</html>
+.item-details {
+  font-size: 12pt;
+}
+.description {
+  font-size: 9pt;
+}
+.edit-button, .add-button {
+  background-color: #ff7f50; 
+  color: white;
+  padding: 5px 10px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+.edit-button:hover, .add-button:hover {
+  background-color: #5a3a22;
+}</style></head><body><header><div class="container"><div id="branding"><h1>Caffeine Chronicles</h1></div><nav><ul><li><a href="/">Home</a></li><li class="current"><a href="/inventory">Inventory</a></li><li><a href="/about">About</a></li><li><a href="/contact">Contact</a></li></ul></nav></div></header><div class="container"><section id="main-col"><h2 class="page-title">Inventory Management</h2><ul><!-- The following list items would be generated dynamically from the server-side--><li class="inventory-item"><div class="item-details"><p><span class="label">ID:</span> [Item ID]</p><p><span class="label">Name:</span> [Item Name]</p><p><span class="label">Quantity:</span> [Item Quantity]</p><p class="description"><span class="label">Description:</span> [Item Description]</p></div><a class="edit-button" href="/inventory/edit/[Item ID]">Edit Item</a></li><!-- Repeat the above list item for each inventory item--></ul><a class="add-button" href="/inventory/add">Add New Item</a></section></div><footer><p>Caffeine Chronicles &copy; 2024</p></footer></body></html>
