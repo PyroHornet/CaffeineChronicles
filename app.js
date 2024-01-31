@@ -67,6 +67,7 @@ var userinfoRouter = require('./routes/userinfo');
 var paymentConfirmRouter = require('./routes/paymentConfirmation');
 var ordersRouter = require('./routes/orders');
 var employeeLoginRouter = require("./routes/employeeLogin");
+var admin = require("./routes/admin");
 const {requiresAuth} = require("express-openid-connect");
 
 
