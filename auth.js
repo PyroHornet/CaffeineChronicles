@@ -40,6 +40,7 @@ router.get("/callback", (req, res, next) => {
         });
     })(req, res, next);
 });
+
 router.get("/logout", (req, res) => {
     req.logOut(function(err) {
         if (err) {
@@ -72,22 +73,24 @@ router.get("/logout", (req, res) => {
 
     res.redirect(logoutURL.href);
 });
-function checkRole(role) {
-    return function(req, res, next) {
-        const roles = req.user['https://caffeine-chronicles-56787a68c136.herokuapp.com/roles'];
-        if (roles && roles.includes(role)) {
-            next();
-        } else {
-            res.status(403).send('Insufficient role');
-        }
+
+// Middleware to check if the user has Manager role
+function checkIsManager(req, res, next) {
+    const role = req.user['https://caffeine-chronicles-56787a68c136.herokuapp.com/role'];
+
+    if (role === 'Manager') {
+        next();
+    } else {
+        res.status(403).send('Insufficient role. Access denied to the Management Dashboard.');
     }
 }
+
 router.get(
-    '/Manager',
+    '/admin',
     passport.authenticate('auth0', { session: false }),
-    checkRole('Manager'),
+    checkIsManager,
     (req, res) => {
-        // admin role required to get here
+        // Manager role required to get here
         res.send('Hello, Manager!');
     }
 );
