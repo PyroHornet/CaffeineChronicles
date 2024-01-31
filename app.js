@@ -146,7 +146,7 @@ app.use('/userinfo', userinfoRouter);
 app.use('/paymentConfirmation', paymentConfirmRouter);
 app.use('/orders', ordersRouter);
 app.use('/employeeLogin', employeeLoginRouter);
-app.use('/admin', employeeLoginRouter);
+app.use('/admin', adminRouter);
 
 
 
