@@ -46,21 +46,23 @@ html(lang="en")
         h2.page-title Inventory Management
         ul
           // The following list items would be generated dynamically from the server-side
-          li.inventory-item
-            .item-details
+      
+                each book in books
+                    li.book-item 
+                      .book-details
               p
                 span.label ID:
-                |  [Item ID]
+                |  #{book.BookID}
               p
                 span.label Name:
-                |  [Item Name]
+                |  #{book.BookTitle}
               p
                 span.label Quantity:
                 |  [Item Quantity]
               p.description
                 span.label Description:
-                |  [Item Description]
-            a.edit-button(href="/inventory/edit/[Item ID]") Edit Item
+                |  #{book.Desc}
+            a.edit-button(href="/inventory/edit/#{book.BookID}") Edit Item
           // Repeat the above list item for each inventory item
         a.add-button(href="/inventory/add") Add New Item
     footer
