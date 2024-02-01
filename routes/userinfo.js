@@ -33,7 +33,18 @@ router.get('/', secured, async function(req, res, next) {
         const idVal = parts[1];
         idValue = +idVal;
         const query = 'SELECT LastName, FirstName, Address, City, State, PostalCode, PhoneNumber, EmailAddress FROM Customers WHERE UserID = ?';
+        let roleQuery =  'SELECT Role FROM UserCredentials WHERE UserID = ?';
+        let rows2 = await conn.query(roleQuery, [idValue]);
+        const userRole = rows2[0].Role;
         const rows = await conn.query(query, [idValue]);
+        req.session.userR = userRole;
+        req.session.save(err => {
+            if (err) {
+                // handle error
+                console.error('Session save error:', err);
+            }
+            res.render("userinfo", { /* your data for rendering */ });
+        });
         if (rows.length === 0) {
             res.send("No data detected");
             return;
@@ -41,7 +52,8 @@ router.get('/', secured, async function(req, res, next) {
         }
         const customer = rows[0];
         res.render("userinfo", {
-            Customer: customer
+            Customer: customer,
+            userRole: userRole
         });
 
     }

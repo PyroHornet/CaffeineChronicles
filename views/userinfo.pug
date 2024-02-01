@@ -83,6 +83,9 @@ html(lang="en")
                         br
                         input(type='email' placeholder='Enter Email...')
                     button.button_1(type='submit' onclick='myFunction()') Subscribe
+                    if isAuthenticated && userRole === 'Manager'
+                        a(href='dashboard') Dashboard
+
     footer
         p Caffeine Chronicles &copy; 2024
 

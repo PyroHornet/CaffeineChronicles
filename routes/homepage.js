@@ -1,14 +1,19 @@
 var express = require('express');
 var router = express.Router();
 const pool = require('../mdb');
+var idValue = "";
 
 /* GET home page. */
 router.get('/', async function (req, res, next) {
-  //res.render('homepage', { title: 'Express' });
+  const { _raw, _json, user_id, ...userProfile } = req.user;
   let conn;
+  const userid = req.user.user_id;
+  const parts = userid.split("|");
+  const idVal = parts[1];
+  idValue = +idVal;
+
   try {
-    conn = await pool.getConnection();
-    let rows = await conn.query('SELECT * FROM Books WHERE IsFeatured IS TRUE');
+
     if (!rows) {
       return res.status(500).send('Database query failed');
     }
@@ -16,7 +21,12 @@ router.get('/', async function (req, res, next) {
     if (!Array.isArray(rows)) {
       rows = [];
     }
-    res.render('homepage', { books: rows });
+
+    if (userRole === 'Manager') {
+      res.render('dashboard');
+    } else {
+      res.render('homepage', {books: rows});
+    }
   }
   catch (err) {
     console.error(err);
