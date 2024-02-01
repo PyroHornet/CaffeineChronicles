@@ -52,7 +52,7 @@ html(lang="en")
                       .book-details
               p
                 span.label ID:
-                |  #{book.BookID}
+                |  
               p
                 span.label Name:
                 |  #{book.BookTitle}
@@ -62,7 +62,7 @@ html(lang="en")
               p.description
                 span.label Description:
                 |  #{book.Desc}
-            a.edit-button(href="/inventory/edit/#{book.BookID}") Edit Item
+            a.edit-button(href="/inventory/edit/") Edit Item
           // Repeat the above list item for each inventory item
         a.add-button(href="/inventory/add") Add New Item
     footer
