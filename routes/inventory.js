@@ -14,5 +14,19 @@ router.get('/',checkIsManager, function(req, res, next) {
     //res.send('respond with a resource');
     res.render("inventory");
 });
+router.get('/', checkIsManager, async function(req, res, next) {
+    let conn;
+    try {
+        conn = await pool.getConnection();
+        
+        const rows = await conn.query('SELECT * FROM Books'');
+        res.render('inventory', { books: rows }); 
+    } catch (err) {
+        console.error('Error occurred while fetching inventory:', err);
+        res.status(500).send('Error occurred');
+    } finally {
+        if (conn) await conn.end();
+    }
+});
 
 module.exports = router;
