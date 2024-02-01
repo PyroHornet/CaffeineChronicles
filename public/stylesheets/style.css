@@ -160,6 +160,23 @@ button[type="submit"] {
 button[type="submit"]:hover {
     background-color: #de641b; /* Darker shade for hover effect */
 }
+/* Widget Styles */
+.widget {
+    background-color: #fff5e6; /* Light off-white background for contrast */
+    border: 1px solid #ff7f50; /* Coral orange border to match the header */
+    border-radius: 5px; /* Rounded corners */
+    padding: 15px; /* Spacing inside the widget */
+    margin-bottom: 20px; /* Space between widgets */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
 
+.widget h3 {
+    color: #5a3a22; /* Dark brown text, maintaining consistency */
+    margin-bottom: 10px; /* Space below the widget title */
+}
+
+.widget p {
+    color: #5a3a22; /* Dark brown text for readability */
+}
 
 /* Remaining code is unchanged... */
