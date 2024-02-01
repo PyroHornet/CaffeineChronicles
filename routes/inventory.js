@@ -1,6 +1,9 @@
+
+/module.exports = router;
 var express = require('express');
 var router = express.Router();
 const pool = require('../mdb');
+
 function checkIsManager(req, res, next) {
     if (req.isAuthenticated() && req.user.role === 'Manager') {
         next();
@@ -9,10 +12,17 @@ function checkIsManager(req, res, next) {
     }
 }
 
-/* GET users listing. */
-router.get('/',checkIsManager, function(req, res, next) {
-    //res.send('respond with a resource');
-    res.render("inventory");
+/* GET inventory listing. */
+router.get('/', checkIsManager, function(req, res, next) {
+    pool.query('SELECT * FROM inventory', (err, results) => {
+        if (err) {
+            console.error('Error fetching inventory from database:', err);
+            res.send('Error fetching inventory');
+            return;
+        }
+        // Render the inventory template with the fetched results
+        res.render("inventory", { books: results });
+    });
 });
 
 module.exports = router;
