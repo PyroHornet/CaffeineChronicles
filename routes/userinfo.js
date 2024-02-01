@@ -45,6 +45,7 @@ router.get('/', secured, async function(req, res, next) {
             }
             res.render("userinfo", { /* your data for rendering */ });
         });
+        console.log(req.session);
         if (rows.length === 0) {
             res.send("No data detected");
             return;
